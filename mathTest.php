@@ -139,4 +139,49 @@ class mathTest extends PHPUnit_Framework_TestCase {
     public function squareAreaTestParamZero(){
         $this->math->squareArea(0);
     }
+    
+    /**
+     * @test
+     */
+    public function circleAreaTestResult() {
+        $res = $this->math->circleArea(3);
+        $this->assertGreaterThan(28.26, $res);
+        $this->assertLessThan(28.28, $res);
+    }
+    
+     /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 1
+     */
+    public function circleAreaTestParamNull(){
+        $this->math->circleArea(NULL);
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 3
+     */
+    public function circleAreaTestParamNumber(){
+        $this->math->circleArea('qwerty');
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 5
+     */
+    public function circleAreaTestParamLessZero(){
+        $this->math->circleArea(-9);
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 5
+     */
+    public function circleAreaTestParamZero(){
+        $this->math->circleArea(0);
+    }
 }
