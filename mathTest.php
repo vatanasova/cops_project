@@ -95,4 +95,48 @@ class mathTest extends PHPUnit_Framework_TestCase {
     public function rectanglePerimeterTestSecondParamZero(){
         $this->math->rectanglePerimeter(9, 0);
     }
+    
+    /**
+     * @test
+     */
+    public function squareAreaTestResult() {
+        $res = $this->math->squareArea(5);
+        $this->assertEquals(25, $res);
+    }
+    
+     /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 1
+     */
+    public function squareAreaTestParamNull(){
+        $this->math->squareArea(NULL);
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 3
+     */
+    public function squareAreaTestParamNumber(){
+        $this->math->squareArea('qwerty');
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 5
+     */
+    public function squareAreaTestParamLessZero(){
+        $this->math->squareArea(-5);
+    }
+    
+    /**
+     * @test
+     * @expectedException     MyException
+     * @expectedExceptionCode 5
+     */
+    public function squareAreaTestParamZero(){
+        $this->math->squareArea(0);
+    }
 }
