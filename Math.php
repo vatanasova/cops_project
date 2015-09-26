@@ -81,6 +81,14 @@ class Math {
     /**
      * Calculates circle area
      * @param numeric $r
+     * @return numeric area
      */
-    public function circleArea($r){}
+    public function circleArea($r){
+        $this->checkIsNull($r, "NULL parameter is not allowed", 1);
+        $this->checkIsNumeric($r, "Parameters should be valid numeric values", 3);
+        $this->checkIsPositive($r, "Parameters should be greater than zero", 5);
+        
+        $s = pi()*pow($r, 2);
+        return $s;
+    }
 }
