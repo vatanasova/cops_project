@@ -67,8 +67,16 @@ class Math {
     /**
      * Calculates square area
      * @param numeric $a
+     * @return numeric area
      */
-    public function squareArea($a){}
+    public function squareArea($a){
+        $this->checkIsNull($a, "NULL parameter is not allowed", 1);
+        $this->checkIsNumeric($a, "Parameters should be valid numeric values", 3);
+        $this->checkIsPositive($a, "Parameters should be greater than zero", 5);
+        
+        $s = pow($a, 2);
+        return $s;
+    }
     
     /**
      * Calculates circle area
